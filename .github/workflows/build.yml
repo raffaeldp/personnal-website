@@ -56,10 +56,8 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /DOCKER/Personnal-website
-            mkdir prout
-
-# docker-compose -f docker-compose.yml pull webapp
-# docker-compose -f docker-compose.yml stop webapp
-# docker-compose -f docker-compose.yml rm -f webapp
-# docker-compose -f docker-compose.yml --env-file ./.env up -d webapp
+            cd ~/DOCKER/Personnal-website
+            docker-compose -f docker-compose.yml pull webapp
+            docker-compose -f docker-compose.yml stop webapp
+            docker-compose -f docker-compose.yml rm -f webapp
+            docker-compose -f docker-compose.yml --env-file ./.env up -d webapp
