@@ -6,7 +6,7 @@ import styles from './layout.module.css'
 
 export const metadata: Metadata = {
   title: 'Raffael Di Pietro',
-  description: 'An app to split bills between friends',
+  description: 'Raffael Di Pietro, french developper',
 }
 
 const lexend = Lexend({ subsets: ['latin'], weight: ['400', '600'] })
@@ -20,12 +20,12 @@ export default function RootLayout({
     <html
       lang="fr"
       className={`${lexend.className} h-full min-h-full`}
-      data-theme="lemonade"
+      data-theme="nord"
     >
       <body className={styles.bgImage + ' h-full min-h-full'}>
-        <div className="min-height-full m-0 h-full">
+        <div className="min-height-full m-0 flex h-full justify-center bg-base-200">
           <Navbar />
-          <div className="box-border h-full min-h-full px-5 pt-16">
+          <div className="box-border h-full min-h-full w-[1280px] pt-16">
             {children}
           </div>
         </div>

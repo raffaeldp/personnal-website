@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Navbar() {
@@ -7,13 +6,13 @@ export default function Navbar() {
     // </div>
     <div className="navbar absolute left-0 top-0 justify-end bg-base-100">
       <Link className="btn btn-ghost" href="/">
-        home
+        Home
       </Link>
       <Link className="btn btn-ghost" href="/">
-        projects
+        Projects
       </Link>
       <Link className="btn btn-ghost" href="/">
-        contact
+        Contact
       </Link>
     </div>
   )
