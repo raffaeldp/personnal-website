@@ -1,17 +1,16 @@
-import NameCard from '@/components/name-card/name-card'
-import { MapPinIcon } from 'lucide-react'
+import ProjectCardComponent from '@/components/project-card/project-card'
+import { ChevronRight, MapPinIcon } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
 
 export default function Home() {
-  const test = 'bonjour'
+  const projects = [1, 2, 3, 4]
 
   return (
     <div className="flex h-full flex-col gap-8">
-      <div className="hero min-h-full items-start justify-start pt-4">
-        <div className="hero-content flex-row">
+      <div className="flex items-start justify-start pt-6">
+        <div className="flex items-center gap-4">
           <Image
-            className="rounded-full"
+            className="mask mask-squircle"
             src={'/moi_rogne.png'}
             width={150}
             height={150}
@@ -26,6 +25,26 @@ export default function Home() {
                 <p>Strasbourg, France</p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex w-full justify-center">
+        <div className="flex w-fit flex-col gap-4">
+          <div className="flex flex-col justify-between pt-6 md:flex-row md:items-center">
+            <h1 className="text-xl font-bold">My projects</h1>
+            <button className="btn btn-ghost">
+              See more <ChevronRight />
+            </button>
+          </div>
+          <div className="grid w-fit grid-cols-2 gap-4">
+            {projects.map((_, i) => (
+              <ProjectCardComponent
+                key={i}
+                projectName="Coming soon"
+                description="Coming soon"
+                link="/"
+              />
+            ))}
           </div>
         </div>
       </div>

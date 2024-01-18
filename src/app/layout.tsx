@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={styles.bgImage + ' h-full min-h-full'}>
         <div className="min-height-full m-0 flex h-full justify-center bg-base-200">
           <Navbar />
-          <div className="box-border h-full min-h-full w-[1280px] pt-16">
+          <div className="box-border h-full min-h-full w-[81rem] px-4 pt-16">
             {children}
           </div>
         </div>
