@@ -1,9 +1,12 @@
-import ProjectCardComponent from '@/components/project-card/project-card'
+import Projects from '@/components/projects'
+import { PROJECTS_QUERY } from '@/sanity/lib/queries'
+import { loadQuery } from '@/sanity/lib/store'
 import { ChevronRight, MapPinIcon } from 'lucide-react'
+import { SanityDocument } from 'next-sanity'
 import Image from 'next/image'
 
-export default function Home() {
-  const projects = [1, 2, 3, 4]
+export default async function Home() {
+  const projects = await loadQuery<SanityDocument[]>(PROJECTS_QUERY)
 
   return (
     <div className="flex h-full flex-col gap-8">
@@ -36,16 +39,8 @@ export default function Home() {
               See more <ChevronRight />
             </button>
           </div>
-          <div className="grid w-fit grid-cols-2 gap-4">
-            {projects.map((_, i) => (
-              <ProjectCardComponent
-                key={i}
-                projectName="Coming soon"
-                description="Coming soon"
-                link="/"
-              />
-            ))}
-          </div>
+
+          <Projects projects={projects.data}></Projects>
         </div>
       </div>
     </div>
