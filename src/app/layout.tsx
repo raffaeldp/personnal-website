@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Navbar from '../components/navbar'
 import { Lexend } from 'next/font/google'
 import styles from './layout.module.css'
 
@@ -22,14 +21,7 @@ export default function RootLayout({
       className={`${lexend.className} h-full min-h-full`}
       data-theme="nord"
     >
-      <body className={styles.bgImage + ' h-full min-h-full'}>
-        <div className="min-height-full m-0 flex h-full justify-center bg-base-200">
-          <Navbar />
-          <div className="box-border flex h-full min-h-full w-full justify-center">
-            {children}
-          </div>
-        </div>
-      </body>
+      <body className={styles.bgImage + ' h-full min-h-full'}>{children}</body>
     </html>
   )
 }
