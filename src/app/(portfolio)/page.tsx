@@ -7,6 +7,7 @@ import Image from 'next/image'
 
 export default async function Home() {
   const projects = await loadQuery<SanityDocument[]>(PROJECTS_QUERY)
+  console.log(projects)
 
   return (
     <div className="flex h-full flex-col gap-8">
