@@ -2,6 +2,7 @@ import Projects from '@/components/projects'
 import { ChevronRight, MapPinIcon } from 'lucide-react'
 import Image from 'next/image'
 import { getAllProjects } from './projects.service'
+import Link from 'next/link'
 
 export default async function Home() {
   const projects = await getAllProjects()
@@ -33,9 +34,11 @@ export default async function Home() {
         <div className="flex w-fit flex-col gap-4">
           <div className="flex flex-col justify-between pt-6 md:flex-row md:items-center">
             <h1 className="text-xl font-bold">My projects</h1>
-            <button className="btn btn-ghost">
-              See more <ChevronRight />
-            </button>
+            <Link href={'/projects'}>
+              <button className="btn btn-ghost">
+                See more <ChevronRight />
+              </button>
+            </Link>
           </div>
 
           <Projects projects={projects}></Projects>
