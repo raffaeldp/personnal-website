@@ -19,7 +19,7 @@ const PortableImage = ({
   ...props
 }: PortableImageProps) => {
   const imageUrl = image && urlForImage(image)
-  const { width, height } = getImageDimensions(image)
+  const { width, height } = getImageDimensions(image as any)
 
   return (
     <>
