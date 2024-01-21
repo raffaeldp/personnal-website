@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { Lexend } from 'next/font/google'
-import styles from './layout.module.css'
 
 export const metadata: Metadata = {
   title: 'Raffael Di Pietro',
@@ -18,10 +17,10 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${lexend.className} h-full min-h-full`}
+      className=" h-full min-h-full bg-base-200"
       data-theme="nord"
     >
-      <body className={styles.bgImage + ' h-full min-h-full'}>{children}</body>
+      <body>{children}</body>
     </html>
   )
 }

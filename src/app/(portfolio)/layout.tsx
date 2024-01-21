@@ -6,11 +6,9 @@ export default function PortfolioLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="min-height-full m-0 flex h-full justify-center bg-base-200">
+    <div className="m-0 flex justify-center">
       <Navbar />
-      <div className="box-border flex h-full min-h-full w-[81rem] justify-center px-4 pt-16">
-        {children}
-      </div>
+      <div className="w-[81rem] px-4 pt-16">{children}</div>
     </div>
   )
 }

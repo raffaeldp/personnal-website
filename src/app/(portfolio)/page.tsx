@@ -8,8 +8,8 @@ export default async function Home() {
   const projects = await getAllProjects()
 
   return (
-    <div className="flex h-full flex-col gap-8">
-      <div className="flex items-start justify-start pt-6">
+    <div className="flex h-full flex-col items-center gap-8">
+      <div className="flex w-full items-start justify-start pt-6">
         <div className="flex items-center gap-4">
           <Image
             className="mask mask-squircle"

@@ -15,12 +15,7 @@ export default function CustomPortableText({
       }: {
         value: Image & { alt?: string; caption?: string }
       }) => {
-        return (
-          <PortableImage
-            image={value}
-            classesWrapper="relative aspect-[16/9]"
-          />
-        )
+        return <PortableImage image={value} classesWrapper="relative" />
       },
     },
   }
