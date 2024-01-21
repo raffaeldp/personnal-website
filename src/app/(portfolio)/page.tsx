@@ -32,7 +32,7 @@ export default async function Home() {
       </div>
       <div className="flex w-full justify-center">
         <div className="flex w-fit flex-col gap-4">
-          <div className="flex flex-col justify-between pt-6 md:flex-row md:items-center">
+          <div className="flex items-center justify-between pt-6">
             <h1 className="text-xl font-bold">My projects</h1>
             <Link href={'/projects'}>
               <button className="btn btn-ghost">
