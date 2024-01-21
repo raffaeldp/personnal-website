@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className=" h-full min-h-full bg-base-200"
+      className={`${lexend.className} h-full min-h-full bg-base-200`}
       data-theme="nord"
     >
       <body>{children}</body>
