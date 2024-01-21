@@ -1,16 +1,9 @@
-import Link from 'next/link'
-
-export type ProjectCardComponentProps = {
-  title: string
-  description: string
-  technologies?: string[]
-}
+import { Project } from '@/models/project'
 
 export default function ProjectCardComponent({
   title,
-  description,
   technologies,
-}: ProjectCardComponentProps) {
+}: Partial<Project>) {
   return (
     <div className="card card-compact w-96 bg-base-100 bg-opacity-50 shadow-xl">
       <figure>
@@ -19,14 +12,13 @@ export default function ProjectCardComponent({
         </div>
       </figure>
       <div className="card-body">
-        <p>{description}</p>
-      </div>
-      <div className="flex flex-wrap">
-        {technologies?.map((technology, index) => (
-          <div key={index} className="badge badge-secondary badge-outline">
-            {technology}
-          </div>
-        ))}
+        <div className="flex flex-wrap gap-2">
+          {technologies?.map((technology, index) => (
+            <div key={index} className="badge badge-secondary badge-outline">
+              {technology}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

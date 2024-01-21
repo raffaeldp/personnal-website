@@ -1,13 +1,10 @@
 import Projects from '@/components/projects'
-import { PROJECTS_QUERY } from '@/sanity/lib/queries'
-import { loadQuery } from '@/sanity/lib/store'
 import { ChevronRight, MapPinIcon } from 'lucide-react'
-import { SanityDocument } from 'next-sanity'
 import Image from 'next/image'
+import { getAllProjects } from './projects.service'
 
 export default async function Home() {
-  const projects = await loadQuery<SanityDocument[]>(PROJECTS_QUERY)
-  console.log(projects)
+  const projects = await getAllProjects()
 
   return (
     <div className="flex h-full flex-col gap-8">
@@ -41,7 +38,7 @@ export default async function Home() {
             </button>
           </div>
 
-          <Projects projects={projects.data}></Projects>
+          <Projects projects={projects}></Projects>
         </div>
       </div>
     </div>

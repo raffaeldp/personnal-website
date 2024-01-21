@@ -3,7 +3,6 @@ import { Image, PortableTextBlock } from 'sanity'
 import PortableImage from './PortableImage'
 
 export default function CustomPortableText({
-  paragraphClasses,
   value,
 }: {
   paragraphClasses?: string
