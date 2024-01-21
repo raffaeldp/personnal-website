@@ -1,13 +1,15 @@
-import ProjectCardComponent from '@/components/project-card/project-card'
+import Projects from '@/components/projects'
 import { ChevronRight, MapPinIcon } from 'lucide-react'
 import Image from 'next/image'
+import { getAllProjects } from './projects.service'
+import Link from 'next/link'
 
-export default function Home() {
-  const projects = [1, 2, 3, 4]
+export default async function Home() {
+  const projects = await getAllProjects()
 
   return (
-    <div className="flex h-full flex-col gap-8">
-      <div className="flex items-start justify-start pt-6">
+    <div className="flex h-full flex-col items-center gap-8">
+      <div className="flex w-full items-start justify-start pt-6">
         <div className="flex items-center gap-4">
           <Image
             className="mask mask-squircle"
@@ -30,22 +32,16 @@ export default function Home() {
       </div>
       <div className="flex w-full justify-center">
         <div className="flex w-fit flex-col gap-4">
-          <div className="flex flex-col justify-between pt-6 md:flex-row md:items-center">
+          <div className="flex items-center justify-between pt-6">
             <h1 className="text-xl font-bold">My projects</h1>
-            <button className="btn btn-ghost">
-              See more <ChevronRight />
-            </button>
+            <Link href={'/projects'}>
+              <button className="btn btn-ghost">
+                See more <ChevronRight />
+              </button>
+            </Link>
           </div>
-          <div className="grid w-fit grid-cols-2 gap-4">
-            {projects.map((_, i) => (
-              <ProjectCardComponent
-                key={i}
-                projectName="Coming soon"
-                description="Coming soon"
-                link="/"
-              />
-            ))}
-          </div>
+
+          <Projects projects={projects}></Projects>
         </div>
       </div>
     </div>

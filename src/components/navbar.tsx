@@ -8,7 +8,7 @@ export default function Navbar() {
       <Link className="btn btn-ghost" href="/">
         Home
       </Link>
-      <Link className="btn btn-ghost" href="/">
+      <Link className="btn btn-ghost" href="/projects">
         Projects
       </Link>
       <Link className="btn btn-ghost" href="/">

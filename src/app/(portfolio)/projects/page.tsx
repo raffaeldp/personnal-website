@@ -1,0 +1,15 @@
+import Projects from '@/components/projects'
+import { getAllProjects } from '../projects.service'
+
+export default async function ProjectsPage() {
+  const projects = await getAllProjects()
+
+  return (
+    <div className="flex flex-col items-center gap-12">
+      <div className="prose prose-lg">
+        <h1>Projects</h1>
+      </div>
+      <Projects projects={projects}></Projects>
+    </div>
+  )
+}
