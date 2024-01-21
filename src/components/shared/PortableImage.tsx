@@ -1,9 +1,10 @@
 import { urlForImage } from '@/sanity/lib/image'
 import { getImageDimensions } from '@sanity/asset-utils'
 import Image from 'next/image'
+import { Image as SanityImage } from 'sanity'
 
 interface PortableImageProps {
-  image?: any
+  image?: SanityImage
   alt?: string
   size?: string
   classesWrapper?: string

@@ -1,8 +1,8 @@
-import { SanityDocument } from 'next-sanity'
 import PortableImage from './shared/PortableImage'
 import CustomPortableText from './shared/CustomPortableText'
+import { Project } from '@/models/project'
 
-export default function Project({ project }: { project: SanityDocument }) {
+export default function Project({ project }: { project: Project }) {
   const { title, mainImage, body } = project
 
   return (
