@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType, Rule } from 'sanity'
 
 export default defineType({
   name: 'project',
@@ -8,6 +8,7 @@ export default defineType({
     defineField({
       name: 'title',
       title: 'Title',
+
       type: 'string',
     }),
     defineField({
@@ -24,6 +25,7 @@ export default defineType({
       title: 'Contributors',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'contributor' } }],
+      validation: (Rule) => Rule.required().min(1),
     }),
     defineField({
       name: 'mainImage',
@@ -45,6 +47,7 @@ export default defineType({
       title: 'Technologies',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'technology' } }],
+      validation: (Rule) => Rule.required().min(1),
     }),
     defineField({
       name: 'publishedAt',
