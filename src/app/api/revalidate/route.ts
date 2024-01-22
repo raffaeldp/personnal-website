@@ -1,4 +1,4 @@
-import { TagByTypes } from '@/utils/revalidate-utils'
+import { TagByTypes } from '@/utils/tagByTypes'
 import { parseBody } from 'next-sanity/webhook'
 import { revalidateTag } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
