@@ -11,6 +11,8 @@ export const projectId = assertValue(
   'Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID'
 )
 
+export const revalidateSecret = process.env.NEXT_PUBLIC_SANITY_HOOK_SECRET
+
 export const useCdn = process.env.NODE_ENV === 'development' ? true : false
 
 function assertValue<T>(v: T | undefined, errorMessage: string): T {

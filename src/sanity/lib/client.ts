@@ -2,6 +2,9 @@ import { createClient } from '@sanity/client/stega'
 
 import { apiVersion, dataset, projectId, useCdn } from '../env'
 import { QueryParams } from '@sanity/client'
+import { token } from './token'
+import { groq } from 'next-sanity'
+import { TagByTypes } from '@/utils/tagByTypes'
 
 export const client = createClient({
   apiVersion,
@@ -28,4 +31,24 @@ export async function sanityFetch<QueryResponse>({
     cache: process.env.NODE_ENV === 'development' ? 'no-store' : 'force-cache',
     next: { tags },
   })
+}
+
+export function generateStaticSlugs(type: string) {
+  // Not using loadQuery as it's optimized for fetching in the RSC lifecycle
+  return client
+    .withConfig({
+      token,
+      perspective: 'published',
+      useCdn: false,
+      stega: false,
+    })
+    .fetch<string[]>(
+      groq`*[_type == $type && defined(slug.current)]{"slug": slug.current}`,
+      { type },
+      {
+        next: {
+          tags: [TagByTypes[type]],
+        },
+      }
+    )
 }

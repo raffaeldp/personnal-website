@@ -36,7 +36,7 @@ export const getProjectBySlug = async (slug: string): Promise<Project> => {
     slug: project.slug.current,
     body: project.body,
     mainImage: project.mainImage,
-    technologies: project.technologies.map(
+    technologies: project.technologies?.map(
       (tech: { name: string }) => tech.name
     ),
   }

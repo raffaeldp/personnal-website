@@ -1,19 +1,13 @@
 import Project from '@/components/project'
-import { getAllProjects, getProjectBySlug } from '../../projects.service'
-
-export const dynamicParams = true
+import { getProjectBySlug } from '../../projects.service'
+import { generateStaticSlugs } from '@/sanity/lib/client'
 
 // Generate routes at build time
 export async function generateStaticParams() {
-  const projects = await getAllProjects()
-
-  return projects.map((project) => ({
-    slug: project.slug,
-  }))
+  return await generateStaticSlugs('project')
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  // const initial = await loadQuery<SanityDocument>(PROJECT_QUERY, params)
   const project = await getProjectBySlug(params.slug)
 
   return <Project project={project} />

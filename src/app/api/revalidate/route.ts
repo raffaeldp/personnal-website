@@ -1,14 +1,15 @@
-import { TagByTypes } from '@/utils/tagByTypes'
 import { parseBody } from 'next-sanity/webhook'
 import { revalidateTag } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
+import { TagByTypes } from '../../../utils/tagByTypes'
+import { revalidateSecret } from '@/sanity/env'
 
 export async function POST(req: NextRequest) {
   try {
     const { body, isValidSignature } = await parseBody<{
       _type: string
       slug?: string | undefined
-    }>(req, process.env.NEXT_PUBLIC_SANITY_HOOK_SECRET)
+    }>(req, revalidateSecret)
 
     if (!isValidSignature) {
       return new Response('Invalid signature', { status: 401 })
