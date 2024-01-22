@@ -62,8 +62,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd ~/DOCKER/Personnal-website
-            docker login ghcr.io -u $ghcr_user -password-stdin
+            cat github_pat | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
             docker compose -f docker-compose.yml pull webapp
-            docker compose -f docker-compose.yml stop webapp
-            docker compose -f docker-compose.yml rm -f webapp
+            docker compose -f docker-compose.yml down webapp
             docker compose -f docker-compose.yml --env-file ./.env up -d webapp
