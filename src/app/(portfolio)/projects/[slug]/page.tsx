@@ -1,6 +1,8 @@
 import Project from '@/components/project'
 import { getAllProjects, getProjectBySlug } from '../../projects.service'
 
+export const dynamicParams = true
+
 // Generate routes at build time
 export async function generateStaticParams() {
   const projects = await getAllProjects()
