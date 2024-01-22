@@ -1,7 +1,5 @@
 'use server'
 
-import { revalidateTag } from 'next/cache'
-
-export const revalidate = (tag: string): void => {
-  revalidateTag(tag)
+export const TagByTypes: { [key: string]: string } = {
+  project: 'projects',
 }

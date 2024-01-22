@@ -1,3 +1,4 @@
+import { TagByTypes } from '@/utils/revalidate-utils'
 import { parseBody } from 'next-sanity/webhook'
 import { revalidateTag } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
@@ -17,7 +18,7 @@ export async function POST(req: NextRequest) {
       return new Response('Bad Request: missing _type', { status: 400 })
     }
 
-    revalidateTag(body._type)
+    revalidateTag(TagByTypes[body._type])
     return NextResponse.json({
       status: 200,
       revalidated: true,
