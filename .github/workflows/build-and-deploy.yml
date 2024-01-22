@@ -41,6 +41,7 @@ jobs:
           build-args: |
             NEXT_PUBLIC_SANITY_PROJECT_ID=${{ secrets.SANITY_PROJECT_ID }}
             NEXT_PUBLIC_SANITY_DATASET=${{ secrets.SANITY_DATASET }}
+            NEXT_PUBLIC_SANITY_HOOK_SECRET=${{ secrets.NEXT_PUBLIC_SANITY_HOOK_SECRET }}
             SANITY_API_READ_TOKEN=${{ secrets.SANITY_READ_TOKEN }}
 
   deploy:
