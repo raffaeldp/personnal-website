@@ -5,7 +5,7 @@ export default async function ProjectsPage() {
   const projects = await getAllProjects(true)
 
   return (
-    <div className="flex flex-col items-center gap-12">
+    <div className="flex flex-col items-center gap-12 pt-8">
       <div className="prose prose-lg">
         <h1>Projects</h1>
       </div>

@@ -6,12 +6,14 @@ interface PortableImageProps {
   image?: SanityImage
   alt?: string
   size?: string
+  classesImage?: string
   'data-sanity'?: string
 }
 
 const HeaderPortableImage = ({
   image,
   alt = 'Cover image',
+  classesImage,
   ...props
 }: PortableImageProps) => {
   const imageUrl = image && urlForImage(image)
@@ -21,6 +23,7 @@ const HeaderPortableImage = ({
       <div data-sanity={props['data-sanity']}>
         {imageUrl && (
           <Image
+            className={classesImage}
             src={imageUrl}
             alt={alt || ' '}
             priority={true}
