@@ -1,4 +1,4 @@
-import Project from '@/components/project'
+import Project from '@/components/project/project'
 import { getProjectBySlug } from '../../projects.service'
 import { generateStaticSlugs } from '@/sanity/lib/client'
 

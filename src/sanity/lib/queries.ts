@@ -1,6 +1,6 @@
 import { groq } from 'next-sanity'
 
-export const PROJECTS_QUERY = groq`*[_type == "project" && defined(slug)]{
+export const PROJECTS_QUERY = groq`*[_type == "project" && defined(slug) && isImportant in $isImportantValues]{
     _id,
     title,
     slug,

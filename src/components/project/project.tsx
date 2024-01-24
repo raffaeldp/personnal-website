@@ -1,5 +1,5 @@
-import PortableImage from './shared/PortableImage'
-import CustomPortableText from './shared/CustomPortableText'
+import PortableImage from '../shared/PortableImage'
+import CustomPortableText from '../shared/CustomPortableText'
 import { Project } from '@/models/project'
 
 export default function Project({ project }: { project: Project }) {
