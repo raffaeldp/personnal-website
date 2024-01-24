@@ -1,4 +1,5 @@
 import { Project } from '@/models/project'
+import TechnologyTag from '../technologies/technologyTag'
 
 export default function ProjectCardComponent({
   title,
@@ -14,9 +15,7 @@ export default function ProjectCardComponent({
       <div className="card-body">
         <div className="flex flex-wrap gap-2">
           {technologies?.map((technology, index) => (
-            <div key={index} className="badge badge-secondary badge-outline">
-              {technology}
-            </div>
+            <TechnologyTag key={index} name={technology} />
           ))}
         </div>
       </div>
