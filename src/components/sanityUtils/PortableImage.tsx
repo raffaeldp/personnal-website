@@ -33,10 +33,6 @@ const PortableImage = ({
             alt={alt || ' '}
             loading="lazy"
             sizes={size}
-            style={{
-              // Avoid jumping around with aspect-ratio CSS property
-              aspectRatio: width / height,
-            }}
             width={width}
             height={height}
           />
