@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import ProjectCardComponent from './project/projectCard'
+import ProjectCardComponent from './projectCard'
 import { Project } from '@/models/project'
 
 export default function Projects({ projects }: { projects: Project[] }) {

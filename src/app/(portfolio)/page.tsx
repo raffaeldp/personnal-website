@@ -1,4 +1,4 @@
-import Projects from '@/components/projects'
+import Projects from '@/components/project/projects'
 import { ChevronRight, MapPinIcon } from 'lucide-react'
 import Image from 'next/image'
 import { getAllProjects } from './projects.service'

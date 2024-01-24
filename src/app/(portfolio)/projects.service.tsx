@@ -3,10 +3,15 @@ import { PROJECTS_QUERY, PROJECT_QUERY } from '@/sanity/lib/queries'
 import { Project } from '@/models/project'
 import { sanityFetch } from '@/sanity/lib/client'
 
-export const getAllProjects = async (): Promise<Project[]> => {
+export const getAllProjects = async (
+  displayAll = false
+): Promise<Project[]> => {
   const projects: SanityDocument[] = await sanityFetch({
     query: PROJECTS_QUERY,
     tags: ['projects'],
+    qParams: {
+      isImportantValues: displayAll ? [true, false] : [true],
+    },
   })
 
   return projects.map(
