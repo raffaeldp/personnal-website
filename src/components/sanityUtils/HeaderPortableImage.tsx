@@ -20,19 +20,17 @@ const HeaderPortableImage = ({
 
   return (
     <>
-      <div data-sanity={props['data-sanity']}>
-        {imageUrl && (
-          <Image
-            className={classesImage}
-            src={imageUrl}
-            alt={alt || ' '}
-            priority={true}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-          />
-        )}
-      </div>
+      {imageUrl && (
+        <Image
+          className={classesImage}
+          src={imageUrl}
+          alt={alt || ' '}
+          priority={true}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+        />
+      )}
     </>
   )
 }

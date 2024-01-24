@@ -11,7 +11,7 @@ export default function Project({ project }: { project: Project }) {
     <div className="">
       <header className="flex flex-col items-center gap-4 ">
         {mainImage ? (
-          <div className="relative h-40 w-full">
+          <div className="relative h-48 w-full">
             <HeaderPortableImage
               classesImage="rounded-b-xl"
               image={mainImage}
@@ -26,13 +26,13 @@ export default function Project({ project }: { project: Project }) {
         </div>
       </header>
       <main className="mt-4">
-        <div className="flex justify-around">
-          <article className="container prose prose-lg rounded-xl pt-4">
+        <div className="flex flex-col md:px-8 lg:flex-row lg:justify-between">
+          <article className="container prose rounded-xl pt-4 lg:prose-base max-lg:max-w-full lg:ml-16">
             {body ? <CustomPortableText value={body} /> : null}
           </article>
-          <div className="h-fit rounded-xl bg-base-100 p-4 shadow-xl">
+          <div className="h-fit w-fit rounded-xl bg-base-100 p-4 shadow-xl">
             <p>Created with</p>
-            <div className="flex h-fit flex-col gap-3 rounded-xl pt-4">
+            <div className="flex h-fit gap-3 rounded-xl pt-4 lg:flex-col">
               {technologies?.map((technology, index) => (
                 <TechnologyTag name={technology} key={index}></TechnologyTag>
               ))}
@@ -40,6 +40,7 @@ export default function Project({ project }: { project: Project }) {
           </div>
         </div>
       </main>
+      <footer className="mt-16 flex justify-center"></footer>
     </div>
   )
 }
