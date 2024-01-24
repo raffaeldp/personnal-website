@@ -22,6 +22,14 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'isImportant',
+      title: 'Is important ?',
+      description:
+        'The importants projects will be displayed on the home page.',
+      type: 'boolean',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'contributors',
       title: 'Contributors',
       type: 'array',
