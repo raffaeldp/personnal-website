@@ -1,5 +1,5 @@
 import { ProjectLink } from '@/models/projectLink'
-import { SparkleIcon } from 'lucide-react'
+import { LinkIcon, SparkleIcon } from 'lucide-react'
 import Link from 'next/link'
 
 export default function ProjectLinks({
@@ -24,7 +24,9 @@ export default function ProjectLinks({
           >
             {isMain ? (
               <SparkleIcon className="animate-in spin-in-90 text-white delay-150 duration-300" />
-            ) : null}
+            ) : (
+              <LinkIcon />
+            )}
             {displayedName}
           </button>
         </Link>

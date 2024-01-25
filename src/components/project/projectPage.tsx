@@ -1,10 +1,10 @@
 import CustomPortableText from '../sanityUtils/CustomPortableText'
 import { Project } from '@/models/project'
 import HeaderPortableImage from '../sanityUtils/HeaderPortableImage'
-import TechnologyTag from '../technologies/technologyTag'
 import ProjectLinks from './projectLinks'
+import ProjectTechnologiesList from './projectTechnologiesList'
 
-export default function Project({ project }: { project: Project }) {
+export default function ProjectPage({ project }: { project: Project }) {
   const { title, mainImage, body, technologies } = project
 
   return (
@@ -32,20 +32,12 @@ export default function Project({ project }: { project: Project }) {
               <ProjectLinks projectLinks={project.projectLinks} />
             ) : null}
             <div className="divider"></div>
-            <div className="flex flex-col items-center pt-4 lg:flex-row lg:items-start lg:justify-between ">
-              <article className="container prose pt-4 md:prose-base 2xl:prose-xl max-md:max-w-full md:ml-16">
+            <div className="animate-in slide-in-from-top-4 flex flex-col items-center gap-20 pt-4 duration-300 lg:flex-row lg:items-start lg:justify-between ">
+              <article className="container prose shrink-0 pt-4 md:prose-base 2xl:prose-xl max-md:max-w-full md:ml-16">
                 {body ? <CustomPortableText value={body} /> : null}
               </article>
-              <div className="h-fit w-fit rounded-xl bg-base-100 p-4 shadow-xl">
-                <p>Created with</p>
-                <div className="flex h-fit flex-col gap-3 rounded-xl pt-4">
-                  {technologies?.map((technology, index) => (
-                    <TechnologyTag
-                      name={technology}
-                      key={index}
-                    ></TechnologyTag>
-                  ))}
-                </div>
+              <div className="w-[20vw] 2xl:max-w-none 2xl:grow">
+                <ProjectTechnologiesList technologies={technologies} />
               </div>
             </div>
           </div>

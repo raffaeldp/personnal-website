@@ -1,4 +1,4 @@
-import Project from '@/components/project/project'
+import ProjectPage from '@/components/project/projectPage'
 import { getProjectBySlug } from '../../projects.service'
 import { generateStaticSlugs } from '@/sanity/lib/client'
 
@@ -10,5 +10,5 @@ export async function generateStaticParams() {
 export default async function Page({ params }: { params: { slug: string } }) {
   const project = await getProjectBySlug(params.slug)
 
-  return <Project project={project} />
+  return <ProjectPage project={project} />
 }
