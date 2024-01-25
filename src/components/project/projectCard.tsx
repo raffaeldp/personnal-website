@@ -15,7 +15,7 @@ export default function ProjectCardComponent({
       <div className="card-body">
         <div className="flex flex-wrap gap-2">
           {technologies?.map((technology, index) => (
-            <TechnologyTag key={index} name={technology} />
+            <TechnologyTag key={index} name={technology.name} />
           ))}
         </div>
       </div>
