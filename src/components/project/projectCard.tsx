@@ -6,7 +6,7 @@ export default function ProjectCardComponent({
   technologies,
 }: Partial<Project>) {
   return (
-    <div className="animate-in slide-in-from-top-4 card card-compact w-96 bg-base-100 bg-opacity-50 shadow-xl transition-transform duration-300 hover:-translate-y-2">
+    <div className="animate-in slide-in-from-top-4 card card-compact w-96 bg-base-100 bg-opacity-50 shadow-xl transition-transform duration-300 hover:z-10 hover:scale-105">
       <figure>
         <div className="flex h-20 w-full items-center justify-start px-4 pt-4">
           <h2 className="text-3xl">{title}</h2>
@@ -15,7 +15,7 @@ export default function ProjectCardComponent({
       <div className="card-body">
         <div className="flex flex-wrap gap-2">
           {technologies?.map((technology, index) => (
-            <TechnologyTag key={index} name={technology} />
+            <TechnologyTag key={index} name={technology.name} />
           ))}
         </div>
       </div>

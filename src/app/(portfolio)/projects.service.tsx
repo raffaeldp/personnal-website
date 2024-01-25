@@ -21,9 +21,8 @@ export const getAllProjects = async (
       slug: project.slug.current,
       body: project.body,
       mainImage: project.mainImage,
-      technologies: project.technologies?.map(
-        (tech: { name: string }) => tech.name
-      ),
+      technologies: project.technologies,
+      projectLinks: project.projectLinks,
     })
   )
 }
@@ -41,8 +40,7 @@ export const getProjectBySlug = async (slug: string): Promise<Project> => {
     slug: project.slug.current,
     body: project.body,
     mainImage: project.mainImage,
-    technologies: project.technologies?.map(
-      (tech: { name: string }) => tech.name
-    ),
+    technologies: project.technologies,
+    projectLinks: project.projectLinks,
   }
 }
