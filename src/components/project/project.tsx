@@ -21,21 +21,24 @@ export default function Project({ project }: { project: Project }) {
         ) : (
           <div className="pt-8"></div>
         )}
-        <div className="prose">
+        <div className="prose-lg 2xl:prose-2xl">
           <h1>{title}</h1>
         </div>
       </header>
       <main className="mt-4">
-        <div className="flex flex-col md:px-8 lg:flex-row lg:justify-between">
-          <article className="container prose rounded-xl pt-4 lg:prose-base max-lg:max-w-full lg:ml-16">
+        <div className="flex flex-col items-center lg:flex-row lg:items-start lg:justify-between lg:px-8">
+          <div className="flex flex-col gap-4">
             {project.projectLinks ? (
               <ProjectLinks projectLinks={project.projectLinks} />
             ) : null}
-            {body ? <CustomPortableText value={body} /> : null}
-          </article>
+            <div className="divider"></div>
+            <article className="container prose rounded-xl pt-4 md:prose-base 2xl:prose-xl max-md:max-w-full md:ml-16">
+              {body ? <CustomPortableText value={body} /> : null}
+            </article>
+          </div>
           <div className="h-fit w-fit rounded-xl bg-base-100 p-4 shadow-xl">
             <p>Created with</p>
-            <div className="flex h-fit gap-3 rounded-xl pt-4 lg:flex-col">
+            <div className="flex h-fit gap-3 rounded-xl pt-4 md:flex-col">
               {technologies?.map((technology, index) => (
                 <TechnologyTag name={technology} key={index}></TechnologyTag>
               ))}
