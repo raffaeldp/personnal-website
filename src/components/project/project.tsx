@@ -2,10 +2,10 @@ import CustomPortableText from '../sanityUtils/CustomPortableText'
 import { Project } from '@/models/project'
 import HeaderPortableImage from '../sanityUtils/HeaderPortableImage'
 import TechnologyTag from '../technologies/technologyTag'
+import ProjectLinks from './projectLinks'
 
 export default function Project({ project }: { project: Project }) {
   const { title, mainImage, body, technologies } = project
-  console.log(project)
 
   return (
     <div className="">
@@ -28,6 +28,9 @@ export default function Project({ project }: { project: Project }) {
       <main className="mt-4">
         <div className="flex flex-col md:px-8 lg:flex-row lg:justify-between">
           <article className="container prose rounded-xl pt-4 lg:prose-base max-lg:max-w-full lg:ml-16">
+            {project.projectLinks ? (
+              <ProjectLinks projectLinks={project.projectLinks} />
+            ) : null}
             {body ? <CustomPortableText value={body} /> : null}
           </article>
           <div className="h-fit w-fit rounded-xl bg-base-100 p-4 shadow-xl">

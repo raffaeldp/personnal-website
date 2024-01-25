@@ -6,7 +6,8 @@ export const PROJECTS_QUERY = groq`*[_type == "project" && defined(slug) && isIm
     slug,
     body,
     mainImage,
-    technologies[]->{name}
+    technologies[]->{name},
+    projectLinks[]->{displayedName, url}
   }`
 
 export const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug][0]{
@@ -15,5 +16,6 @@ export const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug]
     slug,
     body,
     mainImage,
-    technologies[]->{name}
+    technologies[]->{name},
+    projectLinks[]->{displayedName, url, isMain}
 }`

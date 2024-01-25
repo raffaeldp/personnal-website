@@ -24,6 +24,7 @@ export const getAllProjects = async (
       technologies: project.technologies?.map(
         (tech: { name: string }) => tech.name
       ),
+      projectLinks: project.projectLinks,
     })
   )
 }
@@ -44,5 +45,6 @@ export const getProjectBySlug = async (slug: string): Promise<Project> => {
     technologies: project.technologies?.map(
       (tech: { name: string }) => tech.name
     ),
+    projectLinks: project.projectLinks,
   }
 }

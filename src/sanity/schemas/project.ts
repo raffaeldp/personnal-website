@@ -59,6 +59,13 @@ export default defineType({
       validation: (Rule) => Rule.required().min(1),
     }),
     defineField({
+      name: 'projectLinks',
+      title: 'Project links',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'projectLink' } }],
+      validation: (Rule) => Rule.required().min(1),
+    }),
+    defineField({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
