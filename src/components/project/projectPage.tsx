@@ -3,13 +3,14 @@ import { Project } from '@/models/project'
 import HeaderPortableImage from '../sanityUtils/HeaderPortableImage'
 import ProjectLinks from './projectLinks'
 import ProjectTechnologiesList from './projectTechnologiesList'
+import BackButton from '../navigation/backButton'
 
 export default function ProjectPage({ project }: { project: Project }) {
   const { title, mainImage, body, technologies } = project
 
   return (
     <div className="">
-      <header className="flex flex-col items-center gap-4 ">
+      <header className="flex flex-col gap-4 duration-300 animate-in slide-in-from-bottom-4 lg:px-8">
         {mainImage ? (
           <div className="relative h-48 w-full">
             <HeaderPortableImage
@@ -21,6 +22,7 @@ export default function ProjectPage({ project }: { project: Project }) {
         ) : (
           <div className="pt-8"></div>
         )}
+        <BackButton />
         <div className="prose-lg 2xl:prose-2xl">
           <h1>{title}</h1>
         </div>
