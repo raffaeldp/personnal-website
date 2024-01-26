@@ -32,11 +32,11 @@ export default function ProjectPage({ project }: { project: Project }) {
               <ProjectLinks projectLinks={project.projectLinks} />
             ) : null}
             <div className="divider"></div>
-            <div className="animate-in slide-in-from-top-4 flex flex-col items-center gap-20 pt-4 duration-300 lg:flex-row lg:items-start lg:justify-between ">
+            <div className="flex flex-col items-center gap-20 pt-4 duration-300 animate-in slide-in-from-top-4 lg:flex-row lg:items-start lg:justify-between ">
               <article className="container prose shrink-0 pt-4 md:prose-base 2xl:prose-xl max-md:max-w-full md:ml-16">
                 {body ? <CustomPortableText value={body} /> : null}
               </article>
-              <div className="w-[20vw] 2xl:max-w-none 2xl:grow">
+              <div className="w-full md:px-16 lg:w-[20vw] lg:px-0 2xl:max-w-none 2xl:grow">
                 <ProjectTechnologiesList technologies={technologies} />
               </div>
             </div>
