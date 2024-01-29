@@ -39,10 +39,9 @@ export default function ProjectPage({ project }: { project: Project }) {
               <article className="container prose shrink pt-4 md:prose-base 2xl:prose-xl max-md:max-w-full md:ml-16">
                 {body ? <CustomPortableText value={body} /> : null}
               </article>
-              {/* <div className="flex w-full flex-col gap-6 md:gap-16 md:px-16 lg:w-[20vw] lg:px-0 2xl:max-w-none 2xl:grow"> */}
               <div className="flex w-full flex-col gap-6 md:gap-16 lg:w-64 lg:px-0">
-                <ProjectContributorList contributors={contributors} />
                 <ProjectTechnologiesList technologies={technologies} />
+                <ProjectContributorList contributors={contributors} />
               </div>
             </div>
           </div>
