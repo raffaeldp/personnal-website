@@ -4,9 +4,10 @@ import HeaderPortableImage from '../sanityUtils/HeaderPortableImage'
 import ProjectLinks from './projectLinks'
 import ProjectTechnologiesList from './projectTechnologiesList'
 import BackButton from '../navigation/backButton'
+import ProjectContributorList from './projectContributorsList'
 
 export default function ProjectPage({ project }: { project: Project }) {
-  const { title, mainImage, body, technologies } = project
+  const { title, mainImage, body, technologies, contributors } = project
 
   return (
     <div className="">
@@ -38,7 +39,8 @@ export default function ProjectPage({ project }: { project: Project }) {
               <article className="container prose shrink-0 pt-4 md:prose-base 2xl:prose-xl max-md:max-w-full md:ml-16">
                 {body ? <CustomPortableText value={body} /> : null}
               </article>
-              <div className="w-full md:px-16 lg:w-[20vw] lg:px-0 2xl:max-w-none 2xl:grow">
+              <div className="flex w-full flex-col gap-16 md:px-16 lg:w-[20vw] lg:px-0 2xl:max-w-none 2xl:grow">
+                <ProjectContributorList contributors={contributors} />
                 <ProjectTechnologiesList technologies={technologies} />
               </div>
             </div>
