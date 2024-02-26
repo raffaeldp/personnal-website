@@ -1,0 +1,66 @@
+import { defineField, defineType } from 'sanity'
+
+export default defineType({
+  name: 'experience',
+  title: 'Experiences',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'place',
+      title: 'Place',
+      type: 'string',
+      description: 'Big name, ex: Pixacare / IUT Robert Schuman',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'position',
+      title: 'Position',
+      type: 'string',
+      description: 'Position I am in : Fullstack dev, DUT informatique etc...',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'field',
+      title: 'Field',
+      type: 'string',
+      description: 'Field, ex: Computer Science, work-study',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: (doc) => `${doc.place}-${doc.position}`,
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'date',
+      title: 'Date',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'logo',
+      title: 'Logo',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative Text',
+        },
+      ],
+    }),
+    defineField({
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent',
+    }),
+  ],
+})

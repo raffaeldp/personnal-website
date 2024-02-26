@@ -3,9 +3,12 @@ import { ChevronRight, MapPinIcon } from 'lucide-react'
 import Image from 'next/image'
 import { getAllProjects } from './projects.service'
 import Link from 'next/link'
+import { getAllExperiences } from './experiences.service'
+import Experiences from '@/components/experience/experiences'
 
 export default async function Home() {
   const projects = await getAllProjects()
+  const experiences = await getAllExperiences()
 
   return (
     <div className="flex h-full flex-col items-center gap-8">
@@ -40,8 +43,9 @@ export default async function Home() {
               </button>
             </Link>
           </div>
-
-          <Projects projects={projects}></Projects>
+          <Projects projects={projects} />
+          <h1 className="text-xl font-bold">My experiences</h1>
+          <Experiences experiences={experiences} />
         </div>
       </div>
     </div>
