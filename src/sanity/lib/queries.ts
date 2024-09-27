@@ -27,7 +27,9 @@ export const EXPERIENCES_QUERY = groq`*[_type == "experience" && defined(slug)] 
   place,
   position,
   field,
-  date,
+  startingDate,
+  endingDate,
+  city,
   body,
   logo
 }`
@@ -37,7 +39,9 @@ export const EXPERIENCE_QUERY = groq`*[_type == "experience" && slug.current == 
   place,
   position,
   field,
-  date,
+  startingDate,
+  endingDate,
+  city,
   body,
   logo,
   slug

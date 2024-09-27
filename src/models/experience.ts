@@ -5,7 +5,9 @@ export type Experience = {
   place: string
   position: string
   field: string
-  date: string
+  startingDate: Date
+  endingDate?: Date
+  city?: string
   body: PortableTextBlock[]
   logo: Image
 }

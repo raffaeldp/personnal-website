@@ -8,13 +8,18 @@ export const getAllExperiences = async (): Promise<Experience[]> => {
     query: EXPERIENCES_QUERY,
     tags: ['experiences'],
   })
+  console.log(experiences)
   return experiences.map(
     (experience): Experience => ({
       id: experience._id,
       place: experience.place,
       position: experience.position,
       field: experience.field,
-      date: experience.date,
+      startingDate: new Date(experience.startingDate),
+      endingDate: experience.endingDate
+        ? new Date(experience.endingDate)
+        : undefined,
+      city: experience.city || undefined,
       body: experience.body,
       logo: experience.logo,
     })
@@ -35,7 +40,11 @@ export const getExperienceBySlug = async (
     place: experience.place,
     position: experience.position,
     field: experience.field,
-    date: experience.date,
+    startingDate: new Date(experience.startingDate),
+    endingDate: experience.endingDate
+      ? new Date(experience.endingDate)
+      : undefined,
+    city: experience.city || undefined,
     body: experience.body,
     logo: experience.logo,
   }

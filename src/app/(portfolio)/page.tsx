@@ -24,7 +24,7 @@ export default async function Home() {
           <div className="flex flex-col gap-6">
             <h1 className="text-5xl font-bold">Raffael Di Pietro</h1>
             <div className="flex flex-col gap-2">
-              <p>French web developper</p>
+              <p>Web developper</p>
               <div className="flex gap-3">
                 <MapPinIcon />
                 <p>Strasbourg, France</p>

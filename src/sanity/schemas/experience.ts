@@ -37,10 +37,29 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'date',
-      title: 'Date',
-      type: 'string',
+      title: 'Starting date',
+      name: 'startingDate',
+      type: 'date',
+      options: {
+        dateFormat: 'MM-YYYY',
+        calendarTodayLabel: 'Today',
+      },
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Ending date',
+      description: 'Leave empty if not finished.',
+      name: 'endingDate',
+      type: 'date',
+      options: {
+        dateFormat: 'MM-YYYY',
+        calendarTodayLabel: 'Today',
+      },
+    }),
+    defineField({
+      name: 'city',
+      title: 'City',
+      type: 'string',
     }),
     defineField({
       name: 'logo',
