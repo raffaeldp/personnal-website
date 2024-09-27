@@ -44,7 +44,7 @@ export default async function Home() {
             </Link>
           </div>
           <Projects projects={projects} />
-          <h1 className="text-xl font-bold">My experiences</h1>
+          <h1 className="mt-14 text-xl font-bold">My experiences</h1>
           <Experiences experiences={experiences} />
         </div>
       </div>
