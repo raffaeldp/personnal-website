@@ -44,7 +44,14 @@ export default async function Home() {
             </Link>
           </div>
           <Projects projects={projects} />
-          <h1 className="mt-14 text-xl font-bold">My experiences</h1>
+          <div className="flex items-center justify-between pt-14">
+            <h1 className="text-xl font-bold">My experiences</h1>
+            <Link href={'/experiences'}>
+              <button className="btn btn-ghost">
+                See more <ChevronRight />
+              </button>
+            </Link>
+          </div>
           <Experiences experiences={experiences} />
         </div>
       </div>
