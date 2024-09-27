@@ -1,21 +1,7 @@
 import { Experience } from '@/models/experience'
 import ExperienceCard from './experienceCard'
-
-function getStartingDate(experience: Experience) {
-  return experience.startingDate.toLocaleDateString('en-US', {
-    month: 'short',
-    year: 'numeric',
-  })
-}
-
-function getEndingDate(experience: Experience) {
-  return experience.endingDate
-    ? experience.endingDate.toLocaleDateString('en-US', {
-        month: 'short',
-        year: 'numeric',
-      })
-    : 'Today'
-}
+import Link from 'next/link'
+import { getEndingDate, getStartingDate } from './experience-date-utils'
 
 function sortExperiences(a: Experience, b: Experience) {
   if (!a.endingDate && b.endingDate) {
@@ -54,7 +40,9 @@ export default function Experiences({
             ' flex flex-col items-center gap-5'
           }
         >
-          <ExperienceCard experience={experience} />
+          <Link key={idx} href={`/experiences/${experience.slug}`}>
+            <ExperienceCard experience={experience} />
+          </Link>
           <div className="flex flex-row md:flex-col">
             <p className="md:text-end">
               {getStartingDate(experience)} - {getEndingDate(experience)}

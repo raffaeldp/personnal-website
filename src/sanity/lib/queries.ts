@@ -31,10 +31,12 @@ export const EXPERIENCES_QUERY = groq`*[_type == "experience" && defined(slug)] 
   endingDate,
   city,
   body,
-  logo
+  logo,
+  slug,
+  pageLinks[]->{displayedName, url, isMain}
 }`
 
-export const EXPERIENCE_QUERY = groq`*[_type == "experience" && slug.current == $slug] [0] {
+export const EXPERIENCE_QUERY = groq`*[_type == "experience" && slug.current == $slug][0] {
   _id,
   place,
   position,
@@ -44,5 +46,6 @@ export const EXPERIENCE_QUERY = groq`*[_type == "experience" && slug.current == 
   city,
   body,
   logo,
-  slug
+  slug,
+  pageLinks[]->{displayedName, url, isMain}
 }`

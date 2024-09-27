@@ -1,14 +1,14 @@
-import ProjectPage from '@/components/project/projectPage'
-import { getProjectBySlug } from '../../projects.service'
 import { generateStaticSlugs } from '@/sanity/lib/client'
+import { getExperienceBySlug } from '../../experiences.service'
+import ExperiencePage from '@/components/experience/experiencePage'
 
 // Generate routes at build time
 export async function generateStaticParams() {
-  return await generateStaticSlugs('project')
+  return await generateStaticSlugs('experience')
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const project = await getProjectBySlug(params.slug)
+  const experience = await getExperienceBySlug(params.slug)
 
-  return <ProjectPage project={project} />
+  return <ExperiencePage experience={experience} />
 }

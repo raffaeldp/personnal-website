@@ -1,7 +1,7 @@
 import CustomPortableText from '../sanityUtils/CustomPortableText'
 import { Project } from '@/models/project'
 import HeaderPortableImage from '../sanityUtils/HeaderPortableImage'
-import ProjectLinks from './projectLinks'
+import PageLinks from '../shared/pageLinks'
 import ProjectTechnologiesList from './projectTechnologiesList'
 import BackButton from '../navigation/backButton'
 import ProjectContributorList from './projectContributorsList'
@@ -10,7 +10,7 @@ export default function ProjectPage({ project }: { project: Project }) {
   const { title, mainImage, body, technologies, contributors } = project
 
   return (
-    <div className="">
+    <div>
       <header className="flex flex-col gap-4 duration-300 animate-in slide-in-from-bottom-4 lg:px-8">
         {mainImage ? (
           <div className="relative h-48 w-full">
@@ -31,8 +31,8 @@ export default function ProjectPage({ project }: { project: Project }) {
       <main className="mt-4">
         <div className="lg:px-8">
           <div className="flex flex-col gap-4">
-            {project.projectLinks ? (
-              <ProjectLinks projectLinks={project.projectLinks} />
+            {project.pageLinks ? (
+              <PageLinks pageLinks={project.pageLinks} />
             ) : null}
             <div className="divider"></div>
             <div className="flex flex-col items-center gap-4 pt-4 duration-300 animate-in slide-in-from-top-4 lg:flex-row lg:items-start lg:justify-between ">

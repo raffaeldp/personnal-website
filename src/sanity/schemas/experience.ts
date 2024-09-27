@@ -77,6 +77,13 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'pageLinks',
+      title: 'Page links',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'projectLink' } }],
+      validation: (Rule) => Rule.required().min(1),
+    }),
+    defineField({
       name: 'body',
       title: 'Body',
       type: 'blockContent',
