@@ -28,7 +28,7 @@ export default function ExperienceCard({
         <div className="mt-4 line-clamp-3">
           <PortableText value={experience.body}></PortableText>
         </div>
-        <button className="btn btn-link mt-4 h-fit max-h-fit self-end p-0 no-underline">
+        <button className="btn btn-link mt-4 h-fit min-h-fit self-end p-0 no-underline">
           Learn more
         </button>
       </div>
