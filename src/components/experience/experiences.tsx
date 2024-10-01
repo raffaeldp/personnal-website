@@ -40,7 +40,7 @@ export default function Experiences({
             ' flex flex-col items-center gap-5'
           }
         >
-          <Link key={idx} href={`/experiences/${experience.slug}`}>
+          <Link href={`/experiences/${experience.slug}`}>
             <ExperienceCard experience={experience} />
           </Link>
           <div className="flex flex-row md:flex-col">

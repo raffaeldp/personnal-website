@@ -24,16 +24,18 @@ export default function ExperiencePage({
               alt={`${experience.place}-logo`}
             />
           </div>
-          <div className="flex flex-col gap-4">
-            <div className="prose-lg 2xl:prose-2xl">
-              <h1>{experience.place}</h1>
+          <div className="prose flex w-full flex-col gap-4 sm:flex-row sm:justify-between">
+            <div className="flex flex-col items-baseline">
+              <h1 className="m-0 text-4xl font-semibold">{experience.place}</h1>
+              <p className="m-0 text-lg ">{experience.position}</p>
+              <p className="m-0 text-lg  text-slate-500">{experience.field}</p>
             </div>
             <div className="flex flex-col">
-              <p className="text-base">
+              <p className="m-0 text-base ">
                 {getStartingDate(experience)} - {getEndingDate(experience)}
               </p>
               {experience.city ? (
-                <p className="text-slate-500">{experience.city}</p>
+                <p className="m-0 text-slate-500 ">{experience.city}</p>
               ) : null}
             </div>
           </div>
