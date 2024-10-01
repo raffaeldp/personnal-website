@@ -13,10 +13,10 @@ export default async function Home() {
   return (
     <div className="flex h-full flex-col items-center gap-8">
       <div className="flex w-full items-start justify-start pt-6">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-8">
           <Image
             className="mask mask-squircle"
-            src={'/moi_rogne.png'}
+            src={'/bogoss.webp'}
             width={150}
             height={150}
             alt="me"
