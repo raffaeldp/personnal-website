@@ -3,17 +3,20 @@ import { ChevronRight, MapPinIcon } from 'lucide-react'
 import Image from 'next/image'
 import { getAllProjects } from './projects.service'
 import Link from 'next/link'
+import { getAllExperiences } from './experiences.service'
+import Experiences from '@/components/experience/experiences'
 
 export default async function Home() {
   const projects = await getAllProjects()
+  const experiences = await getAllExperiences()
 
   return (
     <div className="flex h-full flex-col items-center gap-8">
       <div className="flex w-full items-start justify-start pt-6">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-8">
           <Image
             className="mask mask-squircle"
-            src={'/moi_rogne.png'}
+            src={'/bogoss.webp'}
             width={150}
             height={150}
             alt="me"
@@ -21,7 +24,7 @@ export default async function Home() {
           <div className="flex flex-col gap-6">
             <h1 className="text-5xl font-bold">Raffael Di Pietro</h1>
             <div className="flex flex-col gap-2">
-              <p>French web developper</p>
+              <p>Web developper</p>
               <div className="flex gap-3">
                 <MapPinIcon />
                 <p>Strasbourg, France</p>
@@ -40,8 +43,16 @@ export default async function Home() {
               </button>
             </Link>
           </div>
-
-          <Projects projects={projects}></Projects>
+          <Projects projects={projects} />
+          <div className="flex items-center justify-between pt-14">
+            <h1 className="text-xl font-bold">My experiences</h1>
+            <Link href={'/experiences'}>
+              <button className="btn btn-ghost">
+                See more <ChevronRight />
+              </button>
+            </Link>
+          </div>
+          <Experiences experiences={experiences} />
         </div>
       </div>
     </div>

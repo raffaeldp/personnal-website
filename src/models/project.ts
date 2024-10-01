@@ -1,5 +1,5 @@
 import { Image, PortableTextBlock } from 'sanity'
-import { ProjectLink } from './projectLink'
+import { PageLink } from './pageLink'
 import { Technology } from './technology'
 import { Contributor } from './contributor'
 
@@ -11,5 +11,5 @@ export type Project = {
   contributors: Contributor[]
   body?: PortableTextBlock[]
   mainImage?: Image
-  projectLinks?: ProjectLink[]
+  pageLinks?: PageLink[]
 }

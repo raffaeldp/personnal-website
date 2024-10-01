@@ -5,7 +5,8 @@ import project from './schemas/project'
 import contributor from './schemas/contributor'
 import technology from './schemas/technology'
 import projectLink from './schemas/projectLink'
+import experience from './schemas/experience'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [project, contributor, blockContent, technology, projectLink],
+  types: [project, contributor, blockContent, technology, projectLink, experience],
 }

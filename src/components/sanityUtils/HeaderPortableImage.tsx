@@ -5,7 +5,8 @@ import { Image as SanityImage } from 'sanity'
 interface PortableImageProps {
   image?: SanityImage
   alt?: string
-  size?: string
+  width?: number
+  height?: number
   classesImage?: string
   'data-sanity'?: string
 }
@@ -14,6 +15,8 @@ const HeaderPortableImage = ({
   image,
   alt = 'Cover image',
   classesImage,
+  height,
+  width,
   ...props
 }: PortableImageProps) => {
   const imageUrl = image && urlForImage(image)
@@ -26,9 +29,12 @@ const HeaderPortableImage = ({
           src={imageUrl}
           alt={alt || ' '}
           priority={true}
-          layout="fill"
+          layout={!width && !height ? 'fill' : 'fixed'}
           objectFit="cover"
           objectPosition="center"
+          height={height}
+          width={width}
+          {...props}
         />
       )}
     </>

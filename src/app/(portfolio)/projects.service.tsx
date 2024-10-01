@@ -23,7 +23,7 @@ export const getAllProjects = async (
       contributors: project.contributors,
       mainImage: project.mainImage,
       technologies: project.technologies,
-      projectLinks: project.projectLinks,
+      pageLinks: project.projectLinks,
     })
   )
 }
@@ -43,6 +43,6 @@ export const getProjectBySlug = async (slug: string): Promise<Project> => {
     contributors: project.contributors,
     mainImage: project.mainImage,
     technologies: project.technologies,
-    projectLinks: project.projectLinks,
+    pageLinks: project.projectLinks,
   }
 }

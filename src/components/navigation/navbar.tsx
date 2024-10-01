@@ -9,9 +9,9 @@ export default function Navbar() {
       <Link className="btn btn-ghost" href="/projects">
         Projects
       </Link>
-      {/* <Link className="btn btn-ghost" href="/">
-        Contact
-      </Link> */}
+      <Link className="btn btn-ghost" href="/experiences">
+        Experiences
+      </Link>
     </div>
   )
 }
