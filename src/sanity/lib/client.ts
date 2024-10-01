@@ -1,4 +1,4 @@
-import { createClient } from '@sanity/client/stega'
+import { createClient } from '@sanity/client'
 
 import { apiVersion, dataset, projectId, useCdn } from '../env'
 import { QueryParams } from '@sanity/client'
@@ -27,7 +27,7 @@ export async function sanityFetch<QueryResponse>({
   qParams?: QueryParams
   tags: string[]
 }): Promise<QueryResponse> {
-  return client.fetch<QueryResponse>(query, qParams, {
+  return client.fetch<QueryResponse>(query, qParams || {}, {
     cache: process.env.NODE_ENV === 'development' ? 'no-store' : 'force-cache',
     next: { tags },
   })

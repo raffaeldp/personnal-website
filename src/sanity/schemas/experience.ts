@@ -42,7 +42,6 @@ export default defineType({
       type: 'date',
       options: {
         dateFormat: 'MM-YYYY',
-        calendarTodayLabel: 'Today',
       },
       validation: (Rule) => Rule.required(),
     }),
@@ -53,7 +52,6 @@ export default defineType({
       type: 'date',
       options: {
         dateFormat: 'MM-YYYY',
-        calendarTodayLabel: 'Today',
       },
     }),
     defineField({
