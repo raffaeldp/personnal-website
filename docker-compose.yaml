@@ -1,7 +1,7 @@
 services:
   webapp:
     container_name: personnal-website
-    image: ghcr.io/augustin68/personnal-website:master
+    image: ghcr.io/raffaeldp/personnal-website:master
     restart: always
     ports:
       - 127.0.0.1:4000:4000
