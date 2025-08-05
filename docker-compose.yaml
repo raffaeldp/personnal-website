@@ -1,0 +1,12 @@
+services:
+  webapp:
+    container_name: personnal-website
+    image: ghcr.io/augustin68/personnal-website:master
+    restart: always
+    ports:
+      - 127.0.0.1:4000:4000
+    environment:
+      - NEXT_PUBLIC_SANITY_PROJECT_ID=${NEXT_PUBLIC_SANITY_PROJECT_ID}
+      - NEXT_PUBLIC_SANITY_DATASET=${NEXT_PUBLIC_SANITY_DATASET}
+      - NEXT_PUBLIC_SANITY_HOOK_SECRET=${NEXT_PUBLIC_SANITY_HOOK_SECRET}
+      - SANITY_API_READ_TOKEN=${SANITY_API_READ_TOKEN}
