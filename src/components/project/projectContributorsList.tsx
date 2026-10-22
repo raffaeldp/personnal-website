@@ -11,7 +11,7 @@ export default function ProjectContributorList({
   return (
     <ItemsList title="Contributors">
       {contributors?.map((contributor, index) => {
-        const item = <ListItem name={contributor.name} />
+        const item = <ListItem key={index} name={contributor.name} />
 
         return contributor.url ? (
           <Link href={contributor.url} key={index} target="_blank">
