@@ -1,0 +1,3 @@
+allowBuilds:
+  # napi-postinstall only re-checks the native binding; prebuilt optional deps cover it
+  unrs-resolver: false
