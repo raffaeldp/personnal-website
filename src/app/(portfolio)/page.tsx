@@ -17,6 +17,7 @@ export default async function Home() {
           <Image
             className="mask mask-squircle"
             src={'/bogoss.webp'}
+            loading="eager"
             width={150}
             height={150}
             alt="me"

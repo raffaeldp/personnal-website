@@ -2,14 +2,13 @@ import { parseBody } from 'next-sanity/webhook'
 import { revalidateTag } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
 import { TagByTypes } from '../../../utils/tagByTypes'
-import { revalidateSecret } from '@/sanity/env'
 
 export async function POST(req: NextRequest) {
   try {
     const { body, isValidSignature } = await parseBody<{
       _type: string
       slug?: string | undefined
-    }>(req, revalidateSecret)
+    }>(req, process.env.SANITY_REVALIDATE_SECRET)
 
     if (!isValidSignature) {
       return new Response('Invalid signature', { status: 401 })
@@ -19,7 +18,8 @@ export async function POST(req: NextRequest) {
       return new Response('Bad Request: missing _type', { status: 400 })
     }
 
-    revalidateTag(TagByTypes[body._type])
+    // expire: 0 keeps pre-16 behavior: purge now, no stale-while-revalidate
+    revalidateTag(TagByTypes[body._type], { expire: 0 })
     return NextResponse.json({
       status: 200,
       revalidated: true,
