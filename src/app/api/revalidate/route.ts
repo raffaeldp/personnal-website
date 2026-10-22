@@ -19,7 +19,8 @@ export async function POST(req: NextRequest) {
       return new Response('Bad Request: missing _type', { status: 400 })
     }
 
-    revalidateTag(TagByTypes[body._type])
+    // expire: 0 keeps pre-16 behavior: purge now, no stale-while-revalidate
+    revalidateTag(TagByTypes[body._type], { expire: 0 })
     return NextResponse.json({
       status: 200,
       revalidated: true,

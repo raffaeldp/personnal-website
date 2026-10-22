@@ -7,8 +7,13 @@ export async function generateStaticParams() {
   return await generateStaticSlugs('experience')
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const experience = await getExperienceBySlug(params.slug)
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  const experience = await getExperienceBySlug(slug)
 
   return <ExperiencePage experience={experience} />
 }
