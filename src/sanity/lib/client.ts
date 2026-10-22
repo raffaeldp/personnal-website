@@ -2,7 +2,6 @@ import { createClient } from '@sanity/client'
 
 import { apiVersion, dataset, projectId, useCdn } from '../env'
 import { QueryParams } from '@sanity/client'
-import { token } from './token'
 import { groq } from 'next-sanity'
 import { TagByTypes } from '@/utils/tagByTypes'
 
@@ -34,10 +33,8 @@ export async function sanityFetch<QueryResponse>({
 }
 
 export function generateStaticSlugs(type: string) {
-  // Not using loadQuery as it's optimized for fetching in the RSC lifecycle
   return client
     .withConfig({
-      token,
       perspective: 'published',
       useCdn: false,
       stega: false,
